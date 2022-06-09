@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->middleware('auth:api')->group(function() {
+    Route::apiResource('book', 'BookController');
 });

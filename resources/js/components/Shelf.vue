@@ -11,10 +11,20 @@
 <script>
     import Book from "./Book.vue";
     export default {
-        props: [ 'title' ],
+        props: [ 'title', 'id' ],
         components: { Book },
+        data() {
+            return {
+                books: {}
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            this.getBooks();
+        },
+        methods: {
+            getBooks() {
+
+            }
         }
     }
 </script>

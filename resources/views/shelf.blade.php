@@ -1,10 +1,9 @@
 @php
-    $shelf = ['title'=>'Literary Fiction'];
-    $metaData = ['title'=>$shelf['title']];
+    $metaData = ['title'=>$shelf->name];
 @endphp
 @extends('layout')
 @section('main')
     <div id="app">
-        <shelf title="{{$shelf['title']}}" />
+        <shelf title="{{$shelf->name}}" id="{{$shelf->id}}" />
     </div>
 @stop
