@@ -22,7 +22,7 @@ class ImportBooks extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Pull in books and dynamically build shelves from a Goodreads export file';
 
     /**
      * Create a new command instance.
