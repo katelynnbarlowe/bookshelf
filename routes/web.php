@@ -2,6 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/shelf', function () {
-    return view('shelf');
-});
+Route::resource('shelf','ShelfController');
