@@ -1,4 +1,5 @@
 ## My personal bookshelf where I can nerd out about data and pick next reads.
+⚠️ Work in Progress ⚠️
 
 ### But why? 🤷🏻‍♀️
 
