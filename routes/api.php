@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Api')->middleware('auth:api')->group(function() {
-    Route::apiResource('book', 'BookController');
-});
+Route::apiResource('book', BookController::class);
+/*Route::middleware('auth:api')->group(function() {
+    Route::apiResource('book', BookController::class);
+});*/

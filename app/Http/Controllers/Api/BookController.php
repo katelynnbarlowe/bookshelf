@@ -1,19 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Models\Book;
+use App\Models\Shelf;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of books.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $books = Book::inRandomOrder();
+        if($request->has('shelf_id')) {
+            $shelf = Shelf::findOrFail($request->input('shelf_id'));
+            $books = $shelf->books()->inRandomOrder();
+        }
+
+        return response()->json($books->get()->toJson(), 200);
     }
 
     /**
