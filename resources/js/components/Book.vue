@@ -10,8 +10,8 @@
                     <div class="read">read</div>
                     <div class="rating" v-if="book.rating">
                         <star v-for="index in fullStars" :key="index" />
-                        <star-half v-for="index in halfStars" :key="index" />
-                        <star-empty v-for="index in emptyStars" :key="index" />
+                        <star-half v-for="index in halfStars" :key="'H'+index" />
+                        <star-empty v-for="index in emptyStars" :key="'E'+index" />
                     </div>
                 </template>
             </div>
