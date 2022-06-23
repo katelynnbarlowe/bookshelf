@@ -13,6 +13,8 @@ module.exports = {
         'orange': '#E86745',
         'tan': '#f2e8e6',
         'grey': '#0B0926',
+        'white': '#ffffff',
+        'black': '#000000',
     },
     fontFamily: {
         sans: ['Lato', 'sans-serif'],

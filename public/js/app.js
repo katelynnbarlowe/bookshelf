@@ -5403,6 +5403,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5451,6 +5457,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Book_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Book.vue */ "./resources/js/components/Book.vue");
+//
 //
 //
 //
@@ -28343,90 +28350,122 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col-lg-2 col-md-4 book to-read romance young-adult" },
+    { staticClass: "book w-1/6 p-1 flex cursor-pointer group" },
     [
-      _c("div", { staticClass: "inner" }, [
-        _c(
-          "div",
-          { staticClass: "img" },
-          [
-            _vm.book.cover
-              ? _c("img", {
-                  attrs: { src: "/images/covers/" + _vm.book.cover },
-                })
-              : _c("div", { staticClass: "filler" }, [
-                  _vm._v("\n                no image available\n            "),
-                ]),
-            _vm._v(" "),
-            _vm.book.main_shelf === "read"
-              ? [
-                  _c("div", { staticClass: "read" }, [_vm._v("read")]),
-                  _vm._v(" "),
-                  _vm.book.rating
-                    ? _c(
-                        "div",
-                        { staticClass: "rating" },
-                        [
-                          _vm._l(_vm.fullStars, function (index) {
-                            return _c("star", { key: index })
-                          }),
-                          _vm._v(" "),
-                          _vm._l(_vm.halfStars, function (index) {
-                            return _c("star-half", { key: "H" + index })
-                          }),
-                          _vm._v(" "),
-                          _vm._l(_vm.emptyStars, function (index) {
-                            return _c("star-empty", { key: "E" + index })
-                          }),
-                        ],
-                        2
-                      )
-                    : _vm._e(),
-                ]
-              : _vm._e(),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c("h4", [_vm._v(_vm._s(_vm.book.title))]),
-        _vm._v(
-          "\n        by: " +
-            _vm._s(_vm.book.author_firstname) +
-            " " +
-            _vm._s(_vm.book.author_lastname) +
-            "\n        "
-        ),
-        _c("div", { staticClass: "meta" }, [
-          _vm._v(
-            "\n            Ave. Rating: " +
-              _vm._s(_vm.round(_vm.book.average_rating, 2)) +
-              "\n            "
+      _c(
+        "div",
+        {
+          staticClass: "inner bg-white bg-opacity-60 flex-shrink-0 p-4 w-full",
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "img relative overflow-hidden p-1" },
+            [
+              _vm.book.cover
+                ? _c("img", {
+                    attrs: { src: "/images/covers/" + _vm.book.cover },
+                  })
+                : _c(
+                    "div",
+                    {
+                      staticClass:
+                        "filler bg-pink w-full h-72 flex items-center justify-center text-xs opacity-80",
+                    },
+                    [
+                      _vm._v(
+                        "\n                no image available\n            "
+                      ),
+                    ]
+                  ),
+              _vm._v(" "),
+              _vm.book.main_shelf === "read"
+                ? [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "read bg-orange px-8 py-2 text-white uppercase text-xs text-center absolute top-1.5 -right-6 rotate-45",
+                      },
+                      [_vm._v("\n                    read\n                ")]
+                    ),
+                    _vm._v(" "),
+                    _vm.book.rating
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "rating absolute bg-black bg-opacity-40 text-center",
+                          },
+                          [
+                            _vm._l(_vm.fullStars, function (index) {
+                              return _c("star", { key: index })
+                            }),
+                            _vm._l(_vm.halfStars, function (index) {
+                              return _c("star-half", { key: "H" + index })
+                            }),
+                            _vm._l(_vm.emptyStars, function (index) {
+                              return _c("star-empty", { key: "E" + index })
+                            }),
+                          ],
+                          2
+                        )
+                      : _vm._e(),
+                  ]
+                : _vm._e(),
+            ],
+            2
           ),
-          _c("div", { staticClass: "extra-meta" }, [
-            _vm._v(
-              "\n                Pages: " +
-                _vm._s(_vm.book.num_pages) +
-                "\n                "
-            ),
-            _c("br"),
-            _vm._v("Year Published: 2013\n                "),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href:
-                    "https://www.goodreads.com/book/show/" +
-                    _vm.book.goodreads_id,
-                  target: "_blank",
-                },
-              },
-              [_vm._v("View on Goodreads")]
-            ),
+          _vm._v(" "),
+          _c("h4", { staticClass: "text-md uppercase font-medium" }, [
+            _vm._v(_vm._s(_vm.book.title)),
           ]),
-        ]),
-      ]),
+          _vm._v(
+            "\n        by: " +
+              _vm._s(_vm.book.author_firstname) +
+              " " +
+              _vm._s(_vm.book.author_lastname) +
+              "\n        "
+          ),
+          _c("div", { staticClass: "meta text-xs pt-2" }, [
+            _vm._v(
+              "\n            Ave. Rating: " +
+                _vm._s(_vm.round(_vm.book.average_rating, 2)) +
+                "\n            "
+            ),
+            _c("div", { staticClass: "extra-meta hidden group-hover:block" }, [
+              _vm._v(
+                "\n                Pages: " +
+                  _vm._s(_vm.book.num_pages) +
+                  "\n                "
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                Year Published: 2013\n                "
+              ),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "underline",
+                  attrs: {
+                    href:
+                      "https://www.goodreads.com/book/show/" +
+                      _vm.book.goodreads_id,
+                    target: "_blank",
+                  },
+                },
+                [
+                  _vm._v(
+                    "\n                    View on Goodreads\n                "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+        ]
+      ),
     ]
   )
 }
@@ -28468,17 +28507,17 @@ var render = function () {
       ),
       _vm._v(" "),
       _vm.books.length
-        ? _c("h3", { staticClass: "text-xl text-center text-green" }, [
+        ? _c("h3", { staticClass: "text-xl text-center text-green mb-4" }, [
             _c("span", { staticClass: "label" }, [
               _c("span", [_vm._v(_vm._s(_vm.books.length))]),
-              _vm._v(" books.\n        "),
+              _vm._v("\n            books.\n        "),
             ]),
           ])
         : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row" },
+        { staticClass: "flex flex-wrap" },
         _vm._l(_vm.books, function (book) {
           return _c("book", { key: book.id, attrs: { book: book } })
         }),
@@ -28513,7 +28552,7 @@ var render = function () {
   return _c(
     "svg",
     {
-      staticClass: "svg-inline--fa fa-star fa-w-18",
+      staticClass: "inline w-3.5 mr-1 text-yellow align-baseline",
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
         "aria-hidden": "true",
@@ -28560,7 +28599,7 @@ var render = function () {
   return _c(
     "svg",
     {
-      staticClass: "svg-inline--fa fa-star fa-w-18",
+      staticClass: "inline w-3.5 mr-1 text-yellow align-baseline",
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
         "aria-hidden": "true",
@@ -28607,7 +28646,7 @@ var render = function () {
   return _c(
     "svg",
     {
-      staticClass: "svg-inline--fa fa-star-half-alt fa-w-17",
+      staticClass: "inline w-3.5 mr-1 text-yellow align-baseline",
       attrs: {
         xmlns: "http://www.w3.org/2000/svg",
         "aria-hidden": "true",

@@ -4,3 +4,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+img {
+    @apply w-full;
+}
+
+.book {
+    .img {
+        width: calc(100% + 8px);
+        margin: -4px -4px .75rem;
+    }
+    .read {
+        box-shadow: -1px 1px 3px rgb(0 0 0 / 30%);
+    }
+    .rating {
+        bottom: 4px;
+        left: 4px;
+        width: calc(100% - 8px);
+        padding: 2px 0;
+        svg {
+            margin-right: 2px;
+        }
+    }
+}

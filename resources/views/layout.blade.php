@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="bg-tan">
+<body class="bg-tan text-grey font-light text-sm leading-6">
     @yield('main')
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
