@@ -14,7 +14,9 @@
                     </div>
                     <div class="rating absolute bg-black bg-opacity-40 text-center" v-if="book.rating">
                         <!-- prettier-ignore -->
-                        <star v-for="index in fullStars" :key="index" /><star-half v-for="index in halfStars" :key="'H' + index" /><star-empty v-for="index in emptyStars" :key="'E' + index" />
+                        <star v-for="index in fullStars" :key="index" />
+                        <star-half v-for="index in halfStars" :key="'H' + index" />
+                        <star-empty v-for="index in emptyStars" :key="'E' + index" />
                     </div>
                 </template>
             </div>
@@ -27,7 +29,11 @@
                     <br />
                     Year Published: 2013
                     <br />
-                    <a :href="`https://www.goodreads.com/book/show/${book.goodreads_id}`" target="_blank" class="underline">
+                    <a
+                        :href="`https://www.goodreads.com/book/show/${book.goodreads_id}`"
+                        target="_blank"
+                        class="underline"
+                    >
                         View on Goodreads
                     </a>
                 </div>

@@ -1,5 +1,6 @@
 <template>
     <div class="container mt-24 border-2 border-color-grey">
+        <filters />
         <h1 class="text-center lowercase text-6xl -mt-8 font-serif">
             <span class="px-8 bg-tan">{{ title }}</span>
         </h1>
@@ -17,9 +18,10 @@
 
 <script>
 import Book from './Book.vue';
+import Filters from './Filters.vue';
 export default {
     props: ['title', 'id'],
-    components: { Book },
+    components: { Book, Filters },
     data() {
         return {
             books: [],

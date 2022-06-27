@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+    transition: all 150ms linear;
+}
 img {
     @apply w-full;
 }
@@ -25,5 +28,14 @@ img {
         svg {
             margin-right: 2px;
         }
+    }
+}
+.btn-group {
+    padding: 2px;
+    .btn:first-child {
+        @apply rounded-tl-3xl rounded-bl-3xl;
+    }
+    .btn:last-child {
+        @apply rounded-tr-3xl rounded-br-3xl;
     }
 }
