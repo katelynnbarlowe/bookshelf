@@ -9,21 +9,43 @@
                     type="button"
                     class="btn uppercase text-sm text-center outline-0 font-normal leading-6 py-1.5 px-3"
                     v-for="(label, value) in states"
-                    :class="{ 'bg-yellow': currentState === value }"
-                    @click.prevent="currentState = value"
+                    :class="{ 'bg-yellow': store.state === value }"
+                    @click.prevent="store.updateState(value)"
                 >
                     {{ label }}
                 </button>
+            </div>
+            <div class="mt-3">
+                <label for="katelynnRating" class="text-normal">katelynn's minimum rating</label>
+                <div class="flex align-items-start">
+                    <div class="range-field w-9/12">
+                        <input
+                            type="range"
+                            class="form-range block h-6 border-0 bg-transparent appearance-none w-full "
+                            min="0"
+                            max="5"
+                            step=".25"
+                            id="katelynnRating"
+                            v-model="katyRating"
+                            @change="store.setKatyMinimumRating(katyRating)"
+                        />
+                    </div>
+                    <div class="w-2/12">
+                        <span class="pl-2">{{store.katyMinimumRating}}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
 import FilterIcon from './svgs/Filter';
+import store from '../store.js';
 export default {
     components: { FilterIcon },
     data() {
         return {
+            store,
             open: false,
             states: {
                 all: 'All',
@@ -31,12 +53,12 @@ export default {
                 'to-read': 'To Read',
                 abandoned: 'Abandoned',
             },
-            currentState: 'all',
+            katyRating: 0,
         };
     },
     watch: {
-        currentState() {
-
+        'store.katyMinimumRating'(newVal, oldVal) {
+            this.katyRating = newVal;
         }
     }
 };

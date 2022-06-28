@@ -39,3 +39,14 @@ img {
         @apply rounded-tr-3xl rounded-br-3xl;
     }
 }
+.form-range {
+    -webkit-appearance: none;
+    background: transparent;
+    &::-moz-focus-outer {
+        border: 0;
+    }
+    &::-webkit-slider-thumb {
+         height:50px;
+         width: 50px;
+     }
+}
