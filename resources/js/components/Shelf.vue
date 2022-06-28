@@ -19,11 +19,13 @@
 <script>
 import Book from './Book.vue';
 import Filters from './Filters.vue';
+import store from '../store.js';
 export default {
     props: ['title', 'id'],
     components: { Book, Filters },
     data() {
         return {
+            store,
             books: [],
         };
     },

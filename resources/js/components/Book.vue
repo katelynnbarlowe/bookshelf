@@ -1,5 +1,5 @@
 <template>
-    <div class="book w-1/6 p-1 flex cursor-pointer group">
+    <div class="book w-1/6 p-1 flex cursor-pointer group" v-if="isIncludedInFilter">
         <div class="inner bg-white bg-opacity-60 flex-shrink-0 p-4 w-full">
             <div class="img relative overflow-hidden p-1">
                 <img :src="`/images/covers/${book.cover}`" v-if="book.cover" />
@@ -46,8 +46,14 @@
 import Star from './svgs/Star';
 import StarHalf from './svgs/StarHalf';
 import StarEmpty from './svgs/StarEmpty';
+import store from '../store.js';
 export default {
     components: { StarEmpty, StarHalf, Star },
+    data() {
+        return {
+            store,
+        };
+    },
     props: {
         book: {
             type: Object,
@@ -69,6 +75,15 @@ export default {
         },
         emptyStars: function () {
             return 5 - (this.fullStars + this.halfStars);
+        },
+        isIncludedInFilter: function () {
+            if (this.store.state !== 'all' && this.store.state !== this.book.main_shelf) {
+                return false;
+            }
+            if (this.book.rating < this.store.katyMinimumRating) {
+                return false;
+            }
+            return true;
         },
     },
 };
