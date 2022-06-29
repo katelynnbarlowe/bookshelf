@@ -5428,7 +5428,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      store: _store_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+      store: _store_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+      shelves: []
     };
   },
   props: {
@@ -5436,6 +5437,12 @@ __webpack_require__.r(__webpack_exports__);
       type: Object,
       required: true
     }
+  },
+  mounted: function mounted() {
+    this.shelves = this.book.shelves.map(function (shelf) {
+      return shelf.id;
+    });
+    this.store.addShelves(this.book.shelves);
   },
   methods: {
     round: function round(number, decimalPlaces) {
@@ -5454,8 +5461,24 @@ __webpack_require__.r(__webpack_exports__);
       return 5 - (this.fullStars + this.halfStars);
     },
     isIncludedInFilter: function isIncludedInFilter() {
+      var _this = this;
+
       if (this.store.state !== 'all' && this.store.state !== this.book.main_shelf) {
         return false;
+      }
+
+      if (this.book.rating < this.store.katyMinimumRating) {
+        return false;
+      }
+
+      if (this.book.average_rating < this.store.goodreadsMinimumRating) {
+        return false;
+      }
+
+      if (this.store.overlappingShelves.length) {
+        return this.store.overlappingShelves.every(function (id) {
+          return _this.shelves.includes(parseInt(id));
+        });
       }
 
       return true;
@@ -5517,9 +5540,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['shelfId'],
   components: {
     FilterIcon: _svgs_Filter__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -5532,8 +5590,25 @@ __webpack_require__.r(__webpack_exports__);
         read: 'Read',
         'to-read': 'To Read',
         abandoned: 'Abandoned'
-      }
+      },
+      katyRating: 0,
+      goodreadsRating: 0,
+      shelves: []
     };
+  },
+  watch: {
+    'store.katyMinimumRating': function storeKatyMinimumRating(newVal, oldVal) {
+      this.katyRating = newVal;
+    },
+    'store.goodreadsMinimumRating': function storeGoodreadsMinimumRating(newVal, oldVal) {
+      this.goodreadRating = newVal;
+    }
+  },
+  mounted: function mounted() {
+    this.getOverlappingShelves();
+  },
+  methods: {
+    getOverlappingShelves: function getOverlappingShelves() {}
   }
 });
 
@@ -5698,8 +5773,42 @@ __webpack_require__.r(__webpack_exports__);
   katyMinimumRating: 0,
   goodreadsMinimumRating: 0,
   overlappingShelves: [],
+  allShelvesInCollection: {},
   updateState: function updateState(state) {
     this.state = state;
+
+    if (state !== 'read') {
+      this.setKatyMinimumRating(0);
+    }
+  },
+  setKatyMinimumRating: function setKatyMinimumRating(rating) {
+    this.katyMinimumRating = rating;
+
+    if (rating !== 0) {
+      this.updateState('read');
+    }
+  },
+  setGoodreadsMinimumRating: function setGoodreadsMinimumRating(rating) {
+    this.goodreadsMinimumRating = rating;
+  },
+  addShelves: function addShelves(shelves) {
+    var _this = this;
+
+    shelves.forEach(function (shelf) {
+      if (!_this.allShelvesInCollection[shelf.id]) {
+        _this.allShelvesInCollection[shelf.id] = shelf.name;
+      }
+    });
+  },
+  addOverlappingShelf: function addOverlappingShelf(shelfId) {
+    if (this.overlappingShelves.indexOf(shelfId) === -1) {
+      this.overlappingShelves.push(shelfId);
+      return;
+    }
+
+    this.overlappingShelves = this.overlappingShelves.filter(function (value) {
+      return value !== shelfId;
+    });
   }
 });
 
@@ -28770,18 +28879,21 @@ var render = function () {
           "div",
           {
             staticClass:
-              "filters-content mt-6 bg-purple border-l-2 border-grey p-6",
+              "filters-content mt-6 bg-purple border-l-2 border-grey p-6 max-w-sm",
           },
           [
             _c(
               "div",
-              { staticClass: "btn-group border-2 border-grey rounded-3xl" },
+              {
+                staticClass:
+                  "btn-group inline-flex border-2 border-grey rounded-3xl",
+              },
               _vm._l(_vm.states, function (label, value) {
                 return _c(
                   "button",
                   {
                     staticClass:
-                      "btn uppercase text-sm text-center outline-0 font-normal leading-6 py-1.5 px-3",
+                      "btn uppercase text-sm text-center outline-0 font-normal leading-6 py-1.5 px-3 hover:bg-yellow",
                     class: { "bg-yellow": _vm.store.state === value },
                     attrs: { type: "button" },
                     on: {
@@ -28805,7 +28917,7 @@ var render = function () {
               _c(
                 "label",
                 {
-                  staticClass: "text-normal",
+                  staticClass: "font-normal",
                   attrs: { for: "katelynnRating" },
                 },
                 [_vm._v("katelynn's minimum rating")]
@@ -28814,8 +28926,16 @@ var render = function () {
               _c("div", { staticClass: "flex align-items-start" }, [
                 _c("div", { staticClass: "range-field w-9/12" }, [
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.katyRating,
+                        expression: "katyRating",
+                      },
+                    ],
                     staticClass:
-                      "block border-0 bg-transparent appearence-none w-full focus:outline-none focus:ring-0 focus:shadow-none",
+                      "form-range block h-6 border-0 bg-transparent appearance-none w-full",
                     attrs: {
                       type: "range",
                       min: "0",
@@ -28823,7 +28943,15 @@ var render = function () {
                       step: ".25",
                       id: "katelynnRating",
                     },
-                    domProps: { value: _vm.store.katyMinimumRating },
+                    domProps: { value: _vm.katyRating },
+                    on: {
+                      change: function ($event) {
+                        return _vm.store.setKatyMinimumRating(_vm.katyRating)
+                      },
+                      __r: function ($event) {
+                        _vm.katyRating = $event.target.value
+                      },
+                    },
                   }),
                 ]),
                 _vm._v(" "),
@@ -28834,6 +28962,97 @@ var render = function () {
                 ]),
               ]),
             ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "font-normal",
+                  attrs: { for: "goodreadsRating" },
+                },
+                [_vm._v("goodreads minimum rating")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex align-items-start" }, [
+                _c("div", { staticClass: "range-field w-9/12" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.goodreadsRating,
+                        expression: "goodreadsRating",
+                      },
+                    ],
+                    staticClass:
+                      "form-range block h-6 border-0 bg-transparent appearance-none w-full",
+                    attrs: {
+                      type: "range",
+                      min: "0",
+                      max: "5",
+                      step: ".25",
+                      id: "goodreadsRating",
+                    },
+                    domProps: { value: _vm.goodreadsRating },
+                    on: {
+                      change: function ($event) {
+                        return _vm.store.setGoodreadsMinimumRating(
+                          _vm.goodreadsRating
+                        )
+                      },
+                      __r: function ($event) {
+                        _vm.goodreadsRating = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-2/12" }, [
+                  _c("span", { staticClass: "pl-2" }, [
+                    _vm._v(_vm._s(_vm.store.goodreadsMinimumRating)),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "mt-3" },
+              [
+                _c("label", { staticClass: "font-normal" }, [
+                  _vm._v("overlapping shelves (select any number)"),
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _vm._l(_vm.store.allShelvesInCollection, function (shelf, id) {
+                  return _c(
+                    "a",
+                    {
+                      staticClass:
+                        "py-.5 px-2 inline-block lowercase hover:text-white",
+                      class: {
+                        "bg-yellow hover:text-grey":
+                          _vm.store.overlappingShelves.indexOf(id) > -1,
+                      },
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.store.addOverlappingShelf(id)
+                        },
+                      },
+                    },
+                    [
+                      id !== _vm.shelfId
+                        ? _c("span", [_vm._v(_vm._s(shelf))])
+                        : _vm._e(),
+                    ]
+                  )
+                }),
+              ],
+              2
+            ),
           ]
         )
       : _vm._e(),
@@ -28866,7 +29085,7 @@ var render = function () {
     "div",
     { staticClass: "container mt-24 border-2 border-color-grey" },
     [
-      _c("filters"),
+      _c("filters", { attrs: { "shelf-id": _vm.id } }),
       _vm._v(" "),
       _c(
         "h1",

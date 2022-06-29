@@ -52,6 +52,7 @@ export default {
     data() {
         return {
             store,
+            shelves: [],
         };
     },
     props: {
@@ -59,6 +60,12 @@ export default {
             type: Object,
             required: true,
         },
+    },
+    mounted() {
+        this.shelves = this.book.shelves.map(function (shelf) {
+            return shelf.id;
+        });
+        this.store.addShelves(this.book.shelves);
     },
     methods: {
         round(number, decimalPlaces) {
@@ -82,6 +89,12 @@ export default {
             }
             if (this.book.rating < this.store.katyMinimumRating) {
                 return false;
+            }
+            if (this.book.average_rating < this.store.goodreadsMinimumRating) {
+                return false;
+            }
+            if(this.store.overlappingShelves.length){
+                return this.store.overlappingShelves.every(id => this.shelves.includes(parseInt(id)));
             }
             return true;
         },

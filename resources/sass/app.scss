@@ -10,14 +10,14 @@
 img {
     max-width: 100%;
 }
-a{
+a {
     text-decoration: none;
-    color:#0B0926;
+    color: #0b0926;
     transition: all 200ms linear;
 }
 a:hover {
-    background: #F4A8B2;
-    color:#0B0926;
+    background: #f4a8b2;
+    color: #0b0926;
 }
 h1 {
     font-family: $font-family-serif;
@@ -25,7 +25,8 @@ h1 {
     font-size: 5rem;
     margin-bottom: 2rem;
 }
-h1, h3 {
+h1,
+h3 {
     font-weight: 300;
 }
 h3 {
@@ -36,12 +37,12 @@ h3 .label {
     min-width: 15%;
     padding-right: 20px;
     flex-shrink: 0;
-    color:#67A777;
+    color: #67a777;
     font-weight: 400;
     font-size: 1.75rem;
 }
-h3 .label svg{
-    margin:0 -10px 0 5px;
+h3 .label svg {
+    margin: 0 -10px 0 5px;
     width: 18px;
 }
 h4 {
@@ -63,17 +64,17 @@ h4 {
             background: $body-bg;
         }
     }
-    h3 .label{
+    h3 .label {
         font-size: 1.25rem;
     }
 }
 .book {
-    padding: .25rem;
+    padding: 0.25rem;
     display: flex;
     transition: transform linear 150ms, opacity linear 150ms;
     cursor: pointer;
     &:hover {
-        transform:scale(1.1);
+        transform: scale(1.1);
         margin-bottom: -54px;
         z-index: 1000;
         flex-direction: column;
@@ -84,16 +85,16 @@ h4 {
         }
     }
     &.faded {
-        opacity: .4;
+        opacity: 0.4;
     }
     .inner {
         background: $white;
     }
-    .review{
+    .review {
         display: none;
         position: absolute;
         margin-top: -1px;
-        width: calc(100% - .5rem);
+        width: calc(100% - 0.5rem);
         background: $white;
         padding: 0 1rem 1rem;
         font-family: $font-family-serif;
@@ -105,22 +106,22 @@ h4 {
         .date {
             font-family: $font-family-sans-serif;
             font-style: normal;
-            font-size: .7rem;
+            font-size: 0.7rem;
             line-height: 1rem;
             display: block;
-            margin-top: .25rem;
+            margin-top: 0.25rem;
         }
-        .inner{
+        .inner {
             padding: 1rem;
-            background: rgba($white,.6);
-            font-size: .9rem;
+            background: rgba($white, 0.6);
+            font-size: 0.9rem;
             flex-shrink: 0;
             width: 100%;
         }
     }
     .img {
         width: calc(100% + 8px);
-        margin:-4px -4px .75rem;
+        margin: -4px -4px 0.75rem;
         overflow: hidden;
         position: relative;
         padding: 4px;
@@ -135,9 +136,9 @@ h4 {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: .75rem;
+        font-size: 0.75rem;
         color: $text;
-        opacity: .8;
+        opacity: 0.8;
     }
     h4 {
         font-size: 1rem;
@@ -146,10 +147,10 @@ h4 {
     }
     .read {
         background: $orange;
-        padding: .4rem 2rem;
+        padding: 0.4rem 2rem;
         color: $white;
         text-transform: uppercase;
-        font-size: .75rem;
+        font-size: 0.75rem;
         text-align: center;
         font-weight: normal;
         position: absolute;
@@ -160,13 +161,13 @@ h4 {
     }
     .rating {
         position: absolute;
-        background: rgba(0,0,0,.45);
+        background: rgba(0, 0, 0, 0.45);
         bottom: 4px;
         left: 4px;
         width: calc(100% - 8px);
         padding: 2px 0;
         text-align: center;
-        svg{
+        svg {
             width: 15px;
             margin-right: 2px;
             color: $yellow;
@@ -174,9 +175,9 @@ h4 {
         }
     }
     .meta {
-        font-size: .75rem;
-        padding-top: .5rem;
-        .extra-meta{
+        font-size: 0.75rem;
+        padding-top: 0.5rem;
+        .extra-meta {
             display: none;
         }
         a {

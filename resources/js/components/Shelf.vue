@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-24 border-2 border-color-grey">
-        <filters />
+        <filters :shelf-id="id" />
         <h1 class="text-center lowercase text-6xl -mt-8 font-serif">
             <span class="px-8 bg-tan">{{ title }}</span>
         </h1>

@@ -21,7 +21,7 @@ class BookController extends Controller
             $books = $shelf->books()->inRandomOrder();
         }
 
-        return response()->json($books->get()->toJson(), 200);
+        return response()->json($books->with('shelves')->get()->toJson(), 200);
     }
 
     /**
