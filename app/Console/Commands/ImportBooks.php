@@ -72,8 +72,8 @@ class ImportBooks extends Command
                 while(strlen($book->isbn) < 10){
                     $book->isbn = '0'.$book->isbn;
                 }
-                if(!empty($book->isbn) && !$book->cover):
-                    $book->cover = $this->saveImage("http://covers.openlibrary.org/b/isbn/{$book->isbn}-M.jpg","{$book->isbn}-M.jpg");
+                if(!empty($book->isbn)):
+                    $book->cover = $this->saveImage("https://covers.openlibrary.org/b/isbn/{$book->isbn}-M.jpg","{$book->isbn}-M.jpg");
                 endif;
                 $book->goodreads_id = $bookArray[0];
                 $author = explode(', ', $bookArray[3]);
