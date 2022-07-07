@@ -18,7 +18,8 @@
 }
 
 a,
-button {
+button,
+label {
     transition: all 150ms linear;
 }
 img {

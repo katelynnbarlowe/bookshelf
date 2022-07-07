@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $books = Book::inRandomOrder();
+        $books = Book::query()->inRandomOrder();
         if($request->has('shelf_id')) {
             $shelf = Shelf::findOrFail($request->input('shelf_id'));
             $books = $shelf->books()->inRandomOrder();

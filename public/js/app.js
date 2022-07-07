@@ -5653,6 +5653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Container__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Container */ "./resources/js/components/Container.vue");
 /* harmony import */ var _Heading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Heading */ "./resources/js/components/Heading.vue");
+/* harmony import */ var multi_range_slider_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! multi-range-slider-vue */ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue");
 //
 //
 //
@@ -5679,23 +5680,115 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Heading: _Heading__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Container: _Container__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Container: _Container__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MultiRangeSlider: multi_range_slider_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
-      selectedShelves: []
+      selectedShelves: [],
+      minimumAverageRating: 0,
+      maximumPages: 0,
+      dateMin: 1500,
+      dateMax: 2022,
+      dateLowerRange: 1900,
+      dateUpperRange: 2022,
+      results: []
     };
+  },
+  mounted: function mounted() {
+    this.dateMax = new Date().getFullYear();
+    this.dateUpperRange = this.dateMax;
   },
   props: {
     shelves: {
       required: true,
       type: Array
     }
+  },
+  methods: {
+    updateDates: function updateDates(e) {
+      this.dateLowerRange = e.minValue;
+      this.dateUpperRange = e.maxValue;
+    },
+    retrieveResults: function retrieveResults() {}
   }
 });
 
@@ -10926,6 +11019,106 @@ defineJQueryPlugin(Toast);
 
 //# sourceMappingURL=bootstrap.esm.js.map
 
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.multi-range-slider * {\r\n  box-sizing: border-box;\r\n  padding: 0px;\r\n  margin: 0px;\n}\n.multi-range-slider {\r\n  display: flex;\r\n  position: relative;\r\n  border: solid 1px gray;\r\n  border-radius: 10px;\r\n  padding: 20px 10px;\r\n  box-shadow: 1px 1px 4px black;\r\n  flex-direction: column;\r\n  -webkit-touch-callout: none; /* iOS Safari */\r\n  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */\r\n  -moz-user-select: none; /* Old versions of Firefox */\r\n  -ms-user-select: none; /* Internet Explorer/Edge */\r\n  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge,*/\n}\n.multi-range-slider .bar {\r\n  display: flex;\n}\n.multi-range-slider .bar-left {\r\n  width: 25%;\r\n  background-color: #f0f0f0;\r\n  border-radius: 10px 0px 0px 10px;\r\n  box-shadow: inset 0px 0px 5px black;\r\n  padding: 4px 0px;\n}\n.multi-range-slider .bar-right {\r\n  width: 25%;\r\n  background-color: #f0f0f0;\r\n  border-radius: 0px 10px 10px 0px;\r\n  box-shadow: inset 0px 0px 5px black;\n}\n.multi-range-slider .bar-inner {\r\n  background-color: lime;\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-shrink: 1;\r\n  position: relative;\r\n  border: solid 1px black;\r\n  justify-content: space-between;\r\n  box-shadow: inset 0px 0px 5px black;\n}\n.multi-range-slider .bar-inner-left {\r\n  width: 50%;\n}\n.multi-range-slider .bar-inner-right {\r\n  width: 50%;\n}\n.multi-range-slider .thumb {\r\n  background-color: red;\r\n  position: relative;\r\n  z-index: 1;\r\n  cursor: pointer;\n}\n.multi-range-slider .thumb::before {\r\n  content: \"\";\r\n  background-color: white;\r\n  position: absolute;\r\n  width: 20px;\r\n  height: 20px;\r\n  border: solid 1px black;\r\n  box-shadow: 0px 0px 3px black, inset 0px 0px 5px gray;\r\n  border-radius: 50%;\r\n  z-index: 1;\r\n  margin: -8px;\r\n  cursor: pointer;\n}\n.multi-range-slider .input-type-range:focus + .thumb::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: -4px;\r\n  left: -4px;\r\n  width: 11px;\r\n  height: 11px;\r\n  z-index: 2;\r\n  border-radius: 50%;\r\n  border: dotted 1px black;\r\n  box-shadow: 0px 0px 5px white, inset 0px 0px 10px black;\n}\n.multi-range-slider .caption {\r\n  position: absolute;\r\n  bottom: 35px;\r\n  width: 2px;\r\n  height: 2px;\r\n  left: 1px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  overflow: visible;\r\n  display: none;\n}\n.multi-range-slider .thumb .caption * {\r\n  position: absolute;\r\n  min-width: 30px;\r\n  height: 30px;\r\n  font-size: 75%;\r\n  text-align: center;\r\n  line-height: 30px;\r\n  background-color: blue;\r\n  border-radius: 15px;\r\n  color: white;\r\n  box-shadow: 0px 0px 5px black;\r\n  padding: 0px 5px;\r\n  white-space: nowrap;\n}\n.multi-range-slider .thumb:active .caption {\r\n  display: flex;\n}\n.multi-range-slider .input-type-range:focus + .thumb .caption {\r\n  display: flex;\n}\n.multi-range-slider .input-type-range {\r\n  position: absolute;\r\n  top: 0px;\r\n  left: 0px;\r\n  width: 100%;\r\n  opacity: 0;\r\n  pointer-events: none;\n}\n.multi-range-slider .ruler {\r\n  margin: 10px 0px -5px 0px;\r\n  display: flex;\r\n  /* display: none; */\r\n  overflow: hidden;\n}\n.multi-range-slider .ruler .ruler-rule {\r\n  border-left: solid 1px;\r\n  border-bottom: solid 1px;\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-shrink: 1;\r\n  padding: 5px 0px;\n}\n.multi-range-slider .ruler .ruler-rule:last-child {\r\n  border-right: solid 1px;\n}\n.multi-range-slider .sub-ruler {\r\n  margin: -2px 0px -5px 0px;\r\n  display: flex; /*\r\ndisplay: none; */\n}\n.multi-range-slider .sub-ruler .ruler-sub-rule {\r\n  border-left: solid 1px;\r\n  border-bottom: solid 1px;\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-shrink: 1;\r\n  padding: 3px 0px;\n}\n.multi-range-slider .sub-ruler .ruler-sub-rule:last-child {\r\n  border-right: solid 1px;\n}\n.multi-range-slider .labels {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0px;\r\n  margin-top: 10px;\r\n  margin-bottom: -20px;\r\n  /* display: none; */\n}\n.multi-range-slider .label {\r\n  font-size: 80%;\r\n  display: flex;\r\n  width: 1px;\r\n  justify-content: center;\n}\n.multi-range-slider .label:first-child {\r\n  justify-content: start;\n}\n.multi-range-slider .label:last-child {\r\n  justify-content: end;\n}\n.multi-range-slider.zero-ranage-margin .thumb-left {\r\n  right: 12px;\n}\n.multi-range-slider.zero-ranage-margin .thumb-right {\r\n  left: 8px;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -28348,6 +28541,759 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../vue-loader/lib/loaders/stylePostLoader.js!../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../vue-loader/lib/index.js??vue-loader-options!./MultiRangeSlider.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue":
+/*!******************************************************************!*\
+  !*** ./node_modules/multi-range-slider-vue/MultiRangeSlider.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MultiRangeSlider.vue?vue&type=template&id=cff044c2& */ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2&");
+/* harmony import */ var _MultiRangeSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiRangeSlider.vue?vue&type=script&lang=js& */ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MultiRangeSlider_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MultiRangeSlider.vue?vue&type=style&index=0&lang=css& */ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MultiRangeSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/multi-range-slider-vue/MultiRangeSlider.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "MultiRangeSlider",
+  props: {
+    baseClassName: {
+      type: String,
+      default: "multi-range-slider"
+    },
+    min: { type: Number },
+    max: { type: Number },
+    minValue: { type: Number },
+    maxValue: { type: Number },
+    step: { type: Number, default: 1 },
+    preventWheel: { type: Boolean, default: false },
+    ruler: { type: Boolean, default: true },
+    label: { type: Boolean, default: true },
+    labels: { type: Array },
+    minCaption: { type: String },
+    maxCaption: { type: String },
+    rangeMargin: { type: Number }
+  },
+  data() {
+    let _labels = this.labels || [];
+    let _minimum = this.min === undefined ? 0 : this.min;
+    let max = _labels.length ? _labels.length - 1 : 100;
+    let _maximum = this.max === undefined ? max : this.max;
+    let _minValue = this.minValue === undefined ? 25 : this.minValue;
+    if (_labels.length && this.minValue === undefined) {
+      _minValue = 1;
+    }
+    let _maxValue = this.maxValue || 75;
+    if (_labels.length && this.maxValue === undefined) {
+      _maxValue = _labels.length - 2;
+    }
+    if (_maximum <= _minimum) {
+      throw new Error("Invalid props min or max");
+    }
+    if (_minValue > _maxValue) {
+      throw new Error("Invalid props minValue or maxValue");
+    }
+    let _rangeMargin =
+      this.rangeMargin === undefined ? this.step : this.rangeMargin;
+
+    let m = _rangeMargin % this.step;
+    m && (_rangeMargin = _rangeMargin + this.step - m);
+
+    return {
+      valueMin: _minValue < _minimum ? _minimum : _minValue,
+      valueMax: _maxValue > _maximum ? _maximum : _maxValue,
+      interVal: null,
+      startX: null,
+      mouseMoveCounter: null,
+      barBox: null,
+      barValue: 0,
+      rangeMarginValue: _rangeMargin
+    };
+  },
+  methods: {
+    onBarLeftClick() {
+      if (this.valueMin - this.step >= this.minimum) {
+        this.valueMin -= this.step;
+      } else {
+        this.valueMin = this.minimum;
+      }
+    },
+    onInnerBarLeftClick() {
+      if (this.valueMin + this.rangeMarginValue < this.valueMax) {
+        this.valueMin += this.step;
+      }
+    },
+    onBarRightClick() {
+      if (this.valueMax + this.step <= this.maximum) {
+        this.valueMax += this.step;
+      } else {
+        this.valueMax = this.maximum;
+      }
+    },
+    onInnerBarRightClick() {
+      if (this.valueMax - this.rangeMarginValue > this.valueMin) {
+        this.valueMax -= this.step;
+      }
+    },
+    onInputMinChange(e) {
+      let val = parseFloat(e.target.value);
+      if (val <= this.valueMax - this.rangeMarginValue && val >= this.minimum) {
+        this.valueMin = val;
+      } else {
+        e.target.value = this.valueMin;
+      }
+    },
+    onInputMaxChange(e) {
+      let val = parseFloat(e.target.value);
+      if (val >= this.valueMin + this.rangeMarginValue && val <= this.maximum) {
+        this.valueMax = val;
+      } else {
+        e.target.value = this.valueMax;
+      }
+    },
+    onLeftThumbMousedown(e) {
+      e.preventDefault();
+      this.startX = e.clientX;
+      if (e.type === "touchstart") {
+        if (e.touches.length === 1) {
+          this.startX = e.touches[0].clientX;
+        } else {
+          return;
+        }
+      }
+      this.mouseMoveCounter = 0;
+      this.barValue = this.valueMin;
+      this.barBox = e.target.parentNode.getBoundingClientRect();
+      document.addEventListener("mousemove", this.onLeftThumbMousemove);
+      document.addEventListener("mouseup", this.onLeftThumbMouseup);
+      document.addEventListener("touchmove", this.onLeftThumbMousemove);
+      document.addEventListener("touchend", this.onLeftThumbMouseup);
+    },
+    onLeftThumbMousemove(e) {
+      this.mouseMoveCounter++;
+      let clientX = e.clientX;
+      if (e.type === "touchmove") {
+        clientX = e.touches[0].clientX;
+      }
+      let dx = clientX - this.startX;
+      let per = dx / this.barBox.width;
+      let val = this.barValue + (this.maximum - this.minimum) * per;
+      let mod = val % this.step;
+      val -= mod;
+      if (val < this.minimum) {
+        val = this.minimum;
+      } else if (val > this.valueMax - this.rangeMarginValue) {
+        val = this.valueMax - this.rangeMarginValue;
+      }
+      this.valueMin = val;
+    },
+    onLeftThumbMouseup() {
+      document.removeEventListener("mousemove", this.onLeftThumbMousemove);
+      document.removeEventListener("mouseup", this.onLeftThumbMouseup);
+      document.removeEventListener("touchmove", this.onLeftThumbMousemove);
+      document.removeEventListener("touchend", this.onLeftThumbMouseup);
+    },
+    onRightThumbMousedown(e) {
+      e.preventDefault();
+      this.startX = e.clientX;
+      if (e.type === "touchstart") {
+        if (e.touches.length === 1) {
+          this.startX = e.touches[0].clientX;
+        } else {
+          return;
+        }
+      }
+      this.mouseMoveCounter = 0;
+      this.barValue = this.valueMax;
+      this.barBox = e.target.parentNode.getBoundingClientRect();
+      document.addEventListener("mousemove", this.onRightThumbMousemove);
+      document.addEventListener("mouseup", this.onRightThumbMouseup);
+      document.addEventListener("touchmove", this.onRightThumbMousemove);
+      document.addEventListener("touchend", this.onRightThumbMouseup);
+    },
+    onRightThumbMousemove(e) {
+      this.mouseMoveCounter++;
+
+      let clientX = e.clientX;
+      if (e.type === "touchmove") {
+        clientX = e.touches[0].clientX;
+      }
+      let dx = clientX - this.startX;
+      let per = dx / this.barBox.width;
+      let val = this.barValue + (this.maximum - this.minimum) * per;
+      let mod = val % this.step;
+      val -= mod;
+
+      if (val < this.valueMin + this.rangeMarginValue) {
+        val = this.valueMin + this.rangeMarginValue;
+      } else if (val > this.maximum) {
+        val = this.maximum;
+      }
+      this.valueMax = val;
+    },
+    onRightThumbMouseup() {
+      document.removeEventListener("mousemove", this.onRightThumbMousemove);
+      document.removeEventListener("mouseup", this.onRightThumbMouseup);
+      document.removeEventListener("touchmove", this.onRightThumbMousemove);
+      document.removeEventListener("touchend", this.onRightThumbMouseup);
+    },
+    onMouseWheel(e) {
+      if (this.preventWheel === true) {
+        return;
+      }
+
+      if (!e.shiftKey && !e.ctrlKey) {
+        return;
+      }
+
+      let val = this.step;
+
+      if (e.deltaY < 0) {
+        val = -val;
+      }
+      if (e.shiftKey && e.ctrlKey) {
+        if (
+          this.valueMin + val >= this.minimum &&
+          this.valueMax + val <= this.maximum
+        ) {
+          this.valueMin = this.valueMin + val;
+          this.valueMax = this.valueMax + val;
+        }
+      } else if (e.ctrlKey) {
+        val = this.valueMax + val;
+
+        if (val < this.valueMin + this.rangeMarginValue) {
+          val = this.valueMin + this.rangeMarginValue;
+        } else if (val > this.maximum) {
+          val = this.maximum;
+        }
+        this.valueMax = val;
+      } else if (e.shiftKey) {
+        val = this.valueMin + val;
+        if (val < this.minimum) {
+          val = this.minimum;
+        } else if (val > this.valueMax - this.rangeMarginValue) {
+          val = this.valueMax - this.rangeMarginValue;
+        }
+        this.valueMin = val;
+      }
+    },
+    triggerInput() {
+      let fixed = 0;
+      if (this.step.toString().includes(".")) {
+        fixed = 2;
+      }
+
+      let retObj = {
+        min: this.minimum,
+        max: this.maximum,
+        minValue: parseFloat(this.valueMin.toFixed(fixed)),
+        maxValue: parseFloat(this.valueMax.toFixed(fixed))
+      };
+      this.$emit("input", retObj);
+    }
+  },
+  computed: {
+    minimum() {
+      return this.min === undefined ? 0 : this.min;
+    },
+    maximum() {
+      let _labels = this.labels || [];
+      let max = _labels.length ? _labels.length - 1 : 100;
+      return this.max === undefined ? max : this.max;
+    },
+    stepCount() {
+      let _labels = this.labels || [];
+      if (_labels.length) {
+        return _labels.length - 1;
+      }
+      return Math.floor((this.maximum - this.minimum) / this.step);
+    },
+    subStepCount() {
+      let _labels = this.labels || [];
+      if (_labels.length && this.step > 1) {
+        return (this.maximum - this.minimum) / this.step;
+      }
+      return 0;
+    },
+    barMin() {
+      let per =
+        ((this.valueMin - this.minimum) / (this.maximum - this.minimum)) * 100;
+      return per;
+    },
+    barMax() {
+      let per =
+        100 -
+        ((this.valueMax - this.minimum) / (this.maximum - this.minimum)) * 100;
+      return per;
+    },
+    barMinVal() {
+      let fixed = 0;
+      if (this.step.toString().includes(".")) {
+        fixed = 2;
+      }
+      return (this.valueMin || 0).toFixed(fixed);
+    },
+    barMaxVal() {
+      let fixed = 0;
+      if (this.step.toString().includes(".")) {
+        fixed = 2;
+      }
+      return (this.valueMax || 100).toFixed(fixed);
+    },
+    scaleLabels() {
+      let _labels = this.labels || [];
+      if (_labels.length === 0) {
+        _labels = [];
+        _labels.push(this.minimum);
+        _labels.push(this.maximum);
+      }
+
+      return _labels;
+    }
+  },
+  watch: {
+    valueMin() {
+      this.triggerInput();
+    },
+    valueMax() {
+      this.triggerInput();
+    },
+    minValue(newValue) {
+      this.valueMin = newValue < this.minimum ? this.minimum : newValue;
+    },
+    maxValue(newValue) {
+      this.valueMax = newValue > this.maximum ? this.maximum : newValue;
+    }
+  },
+  mounted() {}
+});
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Book.vue":
 /*!******************************************!*\
   !*** ./resources/js/components/Book.vue ***!
@@ -28808,6 +29754,52 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_loader_dist_cjs_js_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../style-loader/dist/cjs.js!../css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../vue-loader/lib/loaders/stylePostLoader.js!../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../vue-loader/lib/index.js??vue-loader-options!./MultiRangeSlider.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=style&index=0&lang=css&");
+
+
+/***/ }),
+
+/***/ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/index.js??vue-loader-options!./MultiRangeSlider.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2&":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_MultiRangeSlider_vue_vue_type_template_id_cff044c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../vue-loader/lib/index.js??vue-loader-options!./MultiRangeSlider.vue?vue&type=template&id=cff044c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Book.vue?vue&type=template&id=1b1c1554&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/Book.vue?vue&type=template&id=1b1c1554& ***!
@@ -28974,6 +29966,180 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarHalf_vue_vue_type_template_id_30911a8a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarHalf_vue_vue_type_template_id_30911a8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StarHalf.vue?vue&type=template&id=30911a8a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/svgs/StarHalf.vue?vue&type=template&id=30911a8a&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/multi-range-slider-vue/MultiRangeSlider.vue?vue&type=template&id=cff044c2& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      class: [
+        _vm.baseClassName,
+        _vm.rangeMarginValue === 0 ? "zero-ranage-margin" : "",
+      ],
+      on: {
+        mousewheel: function ($event) {
+          $event.preventDefault()
+          $event.stopPropagation()
+          return _vm.onMouseWheel.apply(null, arguments)
+        },
+      },
+    },
+    [
+      _c("div", { staticClass: "bar" }, [
+        _c("div", {
+          staticClass: "bar-left",
+          style: { width: _vm.barMin + "%" },
+          on: { click: _vm.onBarLeftClick },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "input-type-range input-type-range-min",
+          attrs: {
+            type: "range",
+            min: _vm.minimum,
+            max: _vm.maximum,
+            step: _vm.step,
+          },
+          domProps: { value: _vm.valueMin },
+          on: {
+            input: function ($event) {
+              $event.stopPropagation()
+              $event.preventDefault()
+              return _vm.onInputMinChange.apply(null, arguments)
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "thumb thumb-left",
+            on: {
+              mousedown: _vm.onLeftThumbMousedown,
+              touchstart: _vm.onLeftThumbMousedown,
+            },
+          },
+          [
+            _c("div", { staticClass: "caption" }, [
+              _c("span", { staticClass: "min-caption" }, [
+                _vm._v(_vm._s(_vm.minCaption || _vm.barMinVal)),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "bar-inner" }, [
+          _c("div", {
+            staticClass: "bar-inner-left",
+            on: { click: _vm.onInnerBarLeftClick },
+          }),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "bar-inner-right",
+            on: { click: _vm.onInnerBarRightClick },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "input-type-range input-type-range-max",
+          attrs: {
+            type: "range",
+            min: _vm.minimum,
+            max: _vm.maximum,
+            step: _vm.step,
+          },
+          domProps: { value: _vm.valueMax },
+          on: {
+            input: function ($event) {
+              $event.stopPropagation()
+              $event.preventDefault()
+              return _vm.onInputMaxChange.apply(null, arguments)
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "thumb thumb-right",
+            on: {
+              mousedown: _vm.onRightThumbMousedown,
+              touchstart: _vm.onRightThumbMousedown,
+            },
+          },
+          [
+            _c("div", { staticClass: "caption" }, [
+              _c("span", { staticClass: "max-caption" }, [
+                _vm._v(_vm._s(_vm.maxCaption || _vm.barMaxVal)),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "bar-right",
+          style: { width: _vm.barMax + "%" },
+          on: { click: _vm.onBarRightClick },
+        }),
+      ]),
+      _vm._v(" "),
+      _vm.ruler
+        ? _c(
+            "div",
+            { staticClass: "ruler" },
+            _vm._l(_vm.stepCount, function (n) {
+              return _c("div", { key: n, staticClass: "ruler-rule" })
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.subStepCount
+        ? _c(
+            "div",
+            { staticClass: "sub-ruler" },
+            _vm._l(_vm.subStepCount, function (n) {
+              return _c("div", { key: n, staticClass: "ruler-sub-rule" })
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.label
+        ? _c(
+            "div",
+            { staticClass: "labels" },
+            _vm._l(_vm.scaleLabels, function (label) {
+              return _c("div", { key: label, staticClass: "label" }, [
+                _vm._v("\n      " + _vm._s(label) + "\n    "),
+              ])
+            }),
+            0
+          )
+        : _vm._e(),
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -29430,70 +30596,226 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "inner border-2 border-color-grey p-6" }, [
-        _c("label", { staticClass: "text-lg font-normal" }, [
-          _vm._v("included shelves"),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex flex-wrap gap-x-1 -ml-2" },
-          _vm._l(_vm.shelves, function (shelf) {
-            return _c(
-              "label",
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "filters w-3/5" }, [
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "text-lg font-normal" }, [
+                _vm._v("included shelves"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex flex-wrap gap-x-1 -ml-2" },
+                _vm._l(_vm.shelves, function (shelf) {
+                  return _c(
+                    "label",
+                    {
+                      key: shelf.id,
+                      staticClass:
+                        "lowercase px-2 hover:bg-yellow cursor-pointer",
+                      class: {
+                        "bg-yellow": _vm.selectedShelves.includes(shelf.id),
+                      },
+                      attrs: { for: "shelf" + shelf.id },
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedShelves,
+                            expression: "selectedShelves",
+                          },
+                        ],
+                        staticClass: "sr-only",
+                        attrs: { type: "checkbox", id: "shelf" + shelf.id },
+                        domProps: {
+                          value: shelf.id,
+                          checked: Array.isArray(_vm.selectedShelves)
+                            ? _vm._i(_vm.selectedShelves, shelf.id) > -1
+                            : _vm.selectedShelves,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.selectedShelves,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = shelf.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.selectedShelves = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selectedShelves = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selectedShelves = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(shelf.name) +
+                          "\n                        "
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "text-lg font-normal" }, [
+                _vm._v("minimum average rating"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex align-items-start" }, [
+                _c("div", { staticClass: "range-field w-9/12" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.minimumAverageRating,
+                        expression: "minimumAverageRating",
+                      },
+                    ],
+                    staticClass:
+                      "form-range block h-6 border-0 bg-transparent appearance-none w-full",
+                    attrs: {
+                      type: "range",
+                      min: "0",
+                      max: "5",
+                      step: ".25",
+                      id: "minimumAverageRating",
+                    },
+                    domProps: { value: _vm.minimumAverageRating },
+                    on: {
+                      change: function ($event) {},
+                      __r: function ($event) {
+                        _vm.minimumAverageRating = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-2/12" }, [
+                  _c("span", { staticClass: "pl-2" }, [
+                    _vm._v(_vm._s(_vm.minimumAverageRating)),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "text-lg font-normal" }, [
+                _vm._v("maximum number of pages"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex align-items-start" }, [
+                _c("div", { staticClass: "range-field w-9/12" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.maximumPages,
+                        expression: "maximumPages",
+                      },
+                    ],
+                    staticClass:
+                      "form-range block h-6 border-0 bg-transparent appearance-none w-full",
+                    attrs: {
+                      type: "range",
+                      min: "0",
+                      max: "1200",
+                      step: "25",
+                      id: "maximumPages",
+                    },
+                    domProps: { value: _vm.maximumPages },
+                    on: {
+                      change: function ($event) {},
+                      __r: function ($event) {
+                        _vm.maximumPages = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-2/12" }, [
+                  _c("span", { staticClass: "pl-2" }, [
+                    _vm._v(
+                      _vm._s(_vm.maximumPages ? _vm.maximumPages : "none")
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-8" }, [
+              _c("label", { staticClass: "text-lg font-normal" }, [
+                _vm._v("publication date range"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex align-items-start" }, [
+                _c(
+                  "div",
+                  { staticClass: "range-field w-9/12" },
+                  [
+                    _c("MultiRangeSlider", {
+                      attrs: {
+                        min: _vm.dateMin,
+                        max: _vm.dateMax,
+                        step: 2,
+                        ruler: false,
+                        label: false,
+                        minValue: _vm.dateLowerRange,
+                        maxValue: _vm.dateUpperRange,
+                      },
+                      on: { input: _vm.updateDates },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-2/12" }, [
+                  _c("span", { staticClass: "pl-2" }, [
+                    _vm._v(
+                      _vm._s(_vm.dateLowerRange + " - " + _vm.dateUpperRange)
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
               {
-                key: shelf.id,
-                staticClass: "lowercase px-2 hover:bg-yellow cursor-pointer",
-                class: { "bg-yellow": _vm.selectedShelves.includes(shelf.id) },
-                attrs: { for: "shelf" + shelf.id },
+                staticClass:
+                  "w-full bg-green text-xl text-white py-4 leading-5 hover:opacity-80",
               },
               [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.selectedShelves,
-                      expression: "selectedShelves",
-                    },
-                  ],
-                  staticClass: "sr-only",
-                  attrs: { type: "checkbox", id: "shelf" + shelf.id },
-                  domProps: {
-                    value: shelf.id,
-                    checked: Array.isArray(_vm.selectedShelves)
-                      ? _vm._i(_vm.selectedShelves, shelf.id) > -1
-                      : _vm.selectedShelves,
-                  },
-                  on: {
-                    change: function ($event) {
-                      var $$a = _vm.selectedShelves,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = shelf.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.selectedShelves = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.selectedShelves = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.selectedShelves = $$c
-                      }
-                    },
-                  },
-                }),
                 _vm._v(
-                  "\n                " + _vm._s(shelf.name) + "\n            "
+                  "\n                    pick a book\n                    "
                 ),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-xs" }, [
+                  _vm._v("of " + _vm._s(_vm.results.count) + " results"),
+                ]),
               ]
-            )
-          }),
-          0
-        ),
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "book w-2/5" }, [_vm._v("sldfkjsdflk")]),
+        ]),
       ]),
     ],
     1
@@ -41976,6 +43298,18 @@ Vue.compile = compileToFunctions;
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -42077,6 +43411,11 @@ Vue.compile = compileToFunctions;
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
